@@ -15,5 +15,8 @@
         public void SetImageForPlayer(string playerName, Image image);
         public IList<Match> GetMatches(Cup cup);
         bool HasSettings();
+        Image GetImage(string imgPath);
+        public IList<Player> GetPlayersForTeam(Cup cup, int id);
+
     }
 }

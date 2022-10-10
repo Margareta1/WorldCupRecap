@@ -5,13 +5,25 @@
 
     public class FileRepository : IRepository
     {
-        private const string SETTINGS_DIR = @"C:\Users\38597\Desktop\new\dotnet\Library\Configuration\Config.txt";
-        private const string IMAGES_DIR = @"..\..\..\Library\Images\";
-        private const string DEFAULT_IMAGE_DIR = @"..\..\..\Library\Images\default\";
-        private const string MEN_DIR = @"C:\Users\38597\Desktop\new\dotnet\Library\Data\men\";
-        private const string WOMEN_DIR = @"C:\Users\38597\Desktop\new\dotnet\Library\Data\women\";
-
+        private const string SETTINGS_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Configuration\Config.txt";
+        private const string IMAGES_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Images\";
+        private const string DEFAULT_IMAGE_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Images\default.jpg";
+        private const string MEN_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Data\men\";
+        private const string WOMEN_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Data\women\";
         //relativne putanje ne rade?? provjeri
+        public Image GetImage(string imgPath)
+        {
+            try
+            {
+                return Image.FromFile(imgPath);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
 
         public Image GetImageForPlayer(string playerName)
         {
@@ -48,6 +60,34 @@
             {
                 throw e;
             }
+        }
+
+        public IList<Player> GetPlayersForTeam(Cup cup, int id)
+        {
+            IList<Player> players = new List<Player>();
+            IList<Match> matches = new List<Match>();
+            Match m = new Match();
+            IList<Team> teams = new List<Team>();
+            Team t = new Team();
+            if (cup == Cup.Male)
+            {
+                teams = GetMensTeams();
+            }
+            else
+            {
+                teams = GetWomensTeams();
+            }
+            t = teams.FirstOrDefault(m => m.Id == id);
+            matches = GetMatches(cup);
+            m = matches.FirstOrDefault(k => k.HomeTeam.Code == t.FifaCode);
+            players = m.HomeTeamStatistics.StartingEleven;
+            //players.Union(m.HomeTeamStatistics.Substitutes);
+            foreach (var k in m.HomeTeamStatistics.Substitutes)
+            {
+                players.Add(k);
+            }
+            return players;
+
         }
 
         public IList<GroupResult> GetResultsForGroup(int idGroup, Cup cup)
@@ -119,6 +159,7 @@
                 IList<Match> m = GetMatches(s.CupChoice);
                 Match match = m.FirstOrDefault(m => m.HomeTeam.Country == s.FavoriteTeam.Country);
                 IList<Player> players = (IList<Player>)match.HomeTeamStatistics.StartingEleven;
+                //players.Union(match.HomeTeamStatistics.Substitutes);
                 //konkatenacija nije prošla? provjeri
                 foreach (var item in match.HomeTeamStatistics.Substitutes)
                 {
