@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pageRankings = new System.Windows.Forms.TabControl();
+            this.tabMain = new System.Windows.Forms.TabControl();
             this.pagePlayers = new System.Windows.Forms.TabPage();
             this.lblPlayers = new System.Windows.Forms.Label();
             this.lblFavorites = new System.Windows.Forms.Label();
@@ -42,24 +42,33 @@
             this.flpPlayersByScores = new System.Windows.Forms.FlowLayoutPanel();
             this.lblPlayersByScoreNumber = new System.Windows.Forms.Label();
             this.Settings = new System.Windows.Forms.TabPage();
-            this.pageRankings.SuspendLayout();
+            this.btnChangeLan = new System.Windows.Forms.Button();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.printDocGoalRankings = new System.Drawing.Printing.PrintDocument();
+            this.printDocYCRankings = new System.Drawing.Printing.PrintDocument();
+            this.printDocAttendance = new System.Drawing.Printing.PrintDocument();
+            this.btnPrintGoalRankings = new System.Windows.Forms.Button();
+            this.btnPrintYCRankings = new System.Windows.Forms.Button();
+            this.btnPrintAttendance = new System.Windows.Forms.Button();
+            this.tabMain.SuspendLayout();
             this.pagePlayers.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.flpPlayersByYC.SuspendLayout();
             this.flpMatchesByAttendance.SuspendLayout();
             this.flpPlayersByScores.SuspendLayout();
+            this.Settings.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pageRankings
+            // tabMain
             // 
-            this.pageRankings.Controls.Add(this.pagePlayers);
-            this.pageRankings.Controls.Add(this.tabPage2);
-            this.pageRankings.Controls.Add(this.Settings);
-            this.pageRankings.Location = new System.Drawing.Point(0, -1);
-            this.pageRankings.Name = "pageRankings";
-            this.pageRankings.SelectedIndex = 0;
-            this.pageRankings.Size = new System.Drawing.Size(1182, 755);
-            this.pageRankings.TabIndex = 0;
+            this.tabMain.Controls.Add(this.pagePlayers);
+            this.tabMain.Controls.Add(this.tabPage2);
+            this.tabMain.Controls.Add(this.Settings);
+            this.tabMain.Location = new System.Drawing.Point(0, -1);
+            this.tabMain.Name = "tabMain";
+            this.tabMain.SelectedIndex = 0;
+            this.tabMain.Size = new System.Drawing.Size(1182, 755);
+            this.tabMain.TabIndex = 0;
             // 
             // pagePlayers
             // 
@@ -79,11 +88,11 @@
             // 
             this.lblPlayers.AutoSize = true;
             this.lblPlayers.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblPlayers.Location = new System.Drawing.Point(511, 0);
+            this.lblPlayers.Location = new System.Drawing.Point(610, 3);
             this.lblPlayers.Name = "lblPlayers";
-            this.lblPlayers.Size = new System.Drawing.Size(76, 28);
+            this.lblPlayers.Size = new System.Drawing.Size(105, 28);
             this.lblPlayers.TabIndex = 3;
-            this.lblPlayers.Text = "Players";
+            this.lblPlayers.Text = "All players";
             // 
             // lblFavorites
             // 
@@ -98,9 +107,9 @@
             // flpPlayers
             // 
             this.flpPlayers.AutoScroll = true;
-            this.flpPlayers.Location = new System.Drawing.Point(511, 26);
+            this.flpPlayers.Location = new System.Drawing.Point(610, 26);
             this.flpPlayers.Name = "flpPlayers";
-            this.flpPlayers.Size = new System.Drawing.Size(625, 672);
+            this.flpPlayers.Size = new System.Drawing.Size(526, 672);
             this.flpPlayers.TabIndex = 1;
             // 
             // flpFavorites
@@ -109,19 +118,22 @@
             this.flpFavorites.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.flpFavorites.Location = new System.Drawing.Point(26, 26);
             this.flpFavorites.Name = "flpFavorites";
-            this.flpFavorites.Size = new System.Drawing.Size(459, 672);
+            this.flpFavorites.Size = new System.Drawing.Size(550, 672);
             this.flpFavorites.TabIndex = 0;
             this.flpFavorites.Tag = "";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnPrintAttendance);
+            this.tabPage2.Controls.Add(this.btnPrintYCRankings);
+            this.tabPage2.Controls.Add(this.btnPrintGoalRankings);
             this.tabPage2.Controls.Add(this.flpPlayersByYC);
             this.tabPage2.Controls.Add(this.flpMatchesByAttendance);
             this.tabPage2.Controls.Add(this.flpPlayersByScores);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 37);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1174, 722);
+            this.tabPage2.Size = new System.Drawing.Size(1174, 714);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Rankings";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -133,7 +145,7 @@
             this.flpPlayersByYC.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.flpPlayersByYC.Location = new System.Drawing.Point(412, 7);
             this.flpPlayersByYC.Name = "flpPlayersByYC";
-            this.flpPlayersByYC.Size = new System.Drawing.Size(350, 700);
+            this.flpPlayersByYC.Size = new System.Drawing.Size(350, 644);
             this.flpPlayersByYC.TabIndex = 1;
             // 
             // lblPlayersByYellowCards
@@ -153,7 +165,7 @@
             this.flpMatchesByAttendance.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.flpMatchesByAttendance.Location = new System.Drawing.Point(790, 7);
             this.flpMatchesByAttendance.Name = "flpMatchesByAttendance";
-            this.flpMatchesByAttendance.Size = new System.Drawing.Size(350, 700);
+            this.flpMatchesByAttendance.Size = new System.Drawing.Size(350, 644);
             this.flpMatchesByAttendance.TabIndex = 3;
             // 
             // lblMatchesByAttendance
@@ -173,7 +185,7 @@
             this.flpPlayersByScores.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.flpPlayersByScores.Location = new System.Drawing.Point(35, 7);
             this.flpPlayersByScores.Name = "flpPlayersByScores";
-            this.flpPlayersByScores.Size = new System.Drawing.Size(350, 700);
+            this.flpPlayersByScores.Size = new System.Drawing.Size(350, 644);
             this.flpPlayersByScores.TabIndex = 0;
             // 
             // lblPlayersByScoreNumber
@@ -188,6 +200,7 @@
             // 
             // Settings
             // 
+            this.Settings.Controls.Add(this.btnChangeLan);
             this.Settings.Location = new System.Drawing.Point(4, 29);
             this.Settings.Name = "Settings";
             this.Settings.Padding = new System.Windows.Forms.Padding(3);
@@ -196,13 +209,73 @@
             this.Settings.Text = "Settings";
             this.Settings.UseVisualStyleBackColor = true;
             // 
+            // btnChangeLan
+            // 
+            this.btnChangeLan.BackColor = System.Drawing.Color.IndianRed;
+            this.btnChangeLan.Location = new System.Drawing.Point(44, 35);
+            this.btnChangeLan.Name = "btnChangeLan";
+            this.btnChangeLan.Size = new System.Drawing.Size(200, 45);
+            this.btnChangeLan.TabIndex = 0;
+            this.btnChangeLan.Text = "Change language";
+            this.btnChangeLan.UseVisualStyleBackColor = false;
+            this.btnChangeLan.Click += new System.EventHandler(this.btnChangeLan_Click);
+            // 
+            // printDialog
+            // 
+            this.printDialog.UseEXDialog = true;
+            // 
+            // printDocGoalRankings
+            // 
+            this.printDocGoalRankings.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocGoalRankings_PrintPage);
+            // 
+            // printDocYCRankings
+            // 
+            this.printDocYCRankings.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocYCRankings_PrintPage);
+            // 
+            // printDocAttendance
+            // 
+            this.printDocAttendance.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocAttendance_PrintPage);
+            // 
+            // btnPrintGoalRankings
+            // 
+            this.btnPrintGoalRankings.BackColor = System.Drawing.Color.IndianRed;
+            this.btnPrintGoalRankings.Location = new System.Drawing.Point(72, 668);
+            this.btnPrintGoalRankings.Name = "btnPrintGoalRankings";
+            this.btnPrintGoalRankings.Size = new System.Drawing.Size(251, 37);
+            this.btnPrintGoalRankings.TabIndex = 4;
+            this.btnPrintGoalRankings.Text = "Print goal rankings";
+            this.btnPrintGoalRankings.UseVisualStyleBackColor = false;
+            this.btnPrintGoalRankings.Click += new System.EventHandler(this.btnPrintGoalRankings_Click);
+            // 
+            // btnPrintYCRankings
+            // 
+            this.btnPrintYCRankings.BackColor = System.Drawing.Color.IndianRed;
+            this.btnPrintYCRankings.Location = new System.Drawing.Point(430, 668);
+            this.btnPrintYCRankings.Name = "btnPrintYCRankings";
+            this.btnPrintYCRankings.Size = new System.Drawing.Size(275, 37);
+            this.btnPrintYCRankings.TabIndex = 5;
+            this.btnPrintYCRankings.Text = "Print yellow cards rankings";
+            this.btnPrintYCRankings.UseVisualStyleBackColor = false;
+            this.btnPrintYCRankings.Click += new System.EventHandler(this.btnPrintYCRankings_Click);
+            // 
+            // btnPrintAttendance
+            // 
+            this.btnPrintAttendance.BackColor = System.Drawing.Color.IndianRed;
+            this.btnPrintAttendance.Location = new System.Drawing.Point(882, 668);
+            this.btnPrintAttendance.Name = "btnPrintAttendance";
+            this.btnPrintAttendance.Size = new System.Drawing.Size(220, 37);
+            this.btnPrintAttendance.TabIndex = 6;
+            this.btnPrintAttendance.Text = "Print attendance";
+            this.btnPrintAttendance.UseVisualStyleBackColor = false;
+            this.btnPrintAttendance.Click += new System.EventHandler(this.btnPrintAttendance_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
             this.ClientSize = new System.Drawing.Size(1182, 753);
-            this.Controls.Add(this.pageRankings);
+            this.Controls.Add(this.tabMain);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -213,7 +286,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "App";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.pageRankings.ResumeLayout(false);
+            this.tabMain.ResumeLayout(false);
             this.pagePlayers.ResumeLayout(false);
             this.pagePlayers.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -223,16 +296,16 @@
             this.flpMatchesByAttendance.PerformLayout();
             this.flpPlayersByScores.ResumeLayout(false);
             this.flpPlayersByScores.PerformLayout();
+            this.Settings.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private TabControl pageRankings;
+        private TabControl tabMain;
         private TabPage pagePlayers;
         private TabPage tabPage2;
-        private TabPage Settings;
         private Label lblPlayers;
         private Label lblFavorites;
         private FlowLayoutPanel flpPlayers;
@@ -243,5 +316,14 @@
         private Label lblMatchesByAttendance;
         private FlowLayoutPanel flpPlayersByScores;
         private Label lblPlayersByScoreNumber;
+        private TabPage Settings;
+        private Button btnChangeLan;
+        private PrintDialog printDialog;
+        private System.Drawing.Printing.PrintDocument printDocGoalRankings;
+        private System.Drawing.Printing.PrintDocument printDocYCRankings;
+        private System.Drawing.Printing.PrintDocument printDocAttendance;
+        private Button btnPrintAttendance;
+        private Button btnPrintYCRankings;
+        private Button btnPrintGoalRankings;
     }
 }

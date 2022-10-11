@@ -95,7 +95,7 @@
             this.Name = "ChooseFavoritePlayersForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseFavoritePlayersForm";
+            this.Text = "Choose favorite players";
             this.Load += new System.EventHandler(this.ChooseFavoritePlayersForm_Load);
             this.ResumeLayout(false);
 

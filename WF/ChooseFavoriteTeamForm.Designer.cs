@@ -65,7 +65,7 @@
             this.Controls.Add(this.cbTeams);
             this.Name = "ChooseFavoriteTeamForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChooseFavoriteTeamForm";
+            this.Text = "Choose favorite team";
             this.Load += new System.EventHandler(this.ChooseFavoriteTeamForm_Load);
             this.ResumeLayout(false);
 

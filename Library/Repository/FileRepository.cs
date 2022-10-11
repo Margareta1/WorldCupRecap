@@ -10,6 +10,16 @@
         private const string DEFAULT_IMAGE_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Images\default.jpg";
         private const string MEN_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Data\men\";
         private const string WOMEN_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Data\women\";
+
+        public void ClearConfig()
+        {
+            using (StreamWriter writer = new StreamWriter(SETTINGS_DIR))
+            {
+                writer.WriteLine("");
+                
+            }
+        }
+
         //relativne putanje ne rade?? provjeri
         public Image GetImage(string imgPath)
         {

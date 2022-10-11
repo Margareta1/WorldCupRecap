@@ -54,6 +54,14 @@
                     }
                     ;
                 });
+                item.AwayTeamEvents.ForEach(i =>
+                {
+                    if (i.TypeOfEvent == "goal" && i.Player == $"{this.Name}")
+                    {
+                        temp++;
+                    }
+                    ;
+                });
 
             }
 
@@ -77,8 +85,18 @@
                     if (i.TypeOfEvent == "yellow-card" && i.Player == $"{this.Name}")
                     {
                         temp++;
-                    }
-                    ;
+                    };
+
+                    
+                });
+                item.AwayTeamEvents.ForEach(i =>
+                {
+                    if (i.TypeOfEvent == "yellow-card" && i.Player == $"{this.Name}")
+                    {
+                        temp++;
+                    };
+
+                    
                 });
                 
             }
