@@ -17,7 +17,6 @@
         bool HasSettings();
         Image GetImage(string imgPath);
         public IList<Player> GetPlayersForTeam(Cup cup, int id);
-        void ClearConfig();
 
     }
 }

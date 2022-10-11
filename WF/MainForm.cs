@@ -1,14 +1,5 @@
 ﻿using Library.Models;
 using Library.Repository;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WF
 {
@@ -19,6 +10,8 @@ namespace WF
         private static Settings s = repo.GetSettings();
         private static IList<Player> players = repo.GetPlayersForTeam(s.CupChoice, (int)s.FavoriteTeam.Id);
         private static IList<Match> matches = repo.GetMatches(s.CupChoice);
+        private Font headingFont = new Font("Lucida Console", 14);
+        private Font txtFont = new Font("Lucida Console", 10);
         public MainForm()
         {
             InitializeComponent();
@@ -70,7 +63,6 @@ namespace WF
 
         private void InitPlayersRankedByGoals()
         {
-
             IList<Player> playersRankedByGoals = RankPlayersByGoals(s.CupChoice, players);
             foreach (var item in playersRankedByGoals)
             {
@@ -107,7 +99,6 @@ namespace WF
                 flpFavorites.Controls.Add(new PlayerControl(item));
             }
             
-
             foreach (var item in tempPlayer)
             {
                 flpPlayers.Controls.Add(new PlayerControl(item));
@@ -143,7 +134,6 @@ namespace WF
 
         }
 
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -155,15 +145,12 @@ namespace WF
             }
         }
 
-
         private void printDocGoalRankings_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             float y = e.MarginBounds.Y - 20;
             float x = e.MarginBounds.X;
             int temp = 0;
 
-            Font headingFont = new Font("Lucida Console", 14);
-            Font txtFont = new Font("Lucida Console", 10);
             e.Graphics.DrawString("Players ranked by goals:", headingFont, Brushes.Black, x, y);
             IList<Player>? tempPlayersGoalsRanked = RankPlayersByGoals(s.CupChoice, players);
             foreach (var player in tempPlayersGoalsRanked)
@@ -179,9 +166,7 @@ namespace WF
             float x = e.MarginBounds.X;
             int temp = 0;
 
-            Font headingFont = new Font("Lucida Console", 14);
-            Font txtFont = new Font("Lucida Console", 10);
-            IList<Player>? tempPlayersYCRanked = RankPlayersByYellowCards(s.CupChoice, players);
+            IList<Player> tempPlayersYCRanked = RankPlayersByYellowCards(s.CupChoice, players);
             temp = 0;
             e.Graphics.DrawString("Players ranked by yellow cards:", headingFont, Brushes.Black, x, y += 30);
             foreach (Player player in tempPlayersYCRanked)
@@ -197,9 +182,6 @@ namespace WF
             float x = e.MarginBounds.X;
             int temp = 0;
 
-            Font headingFont = new Font("Lucida Console", 14);
-            Font txtFont = new Font("Lucida Console", 10);
-            temp = 0;
             IList<Match> matchesOfTeam = new List<Match>();
             foreach (var item in matches)
             {

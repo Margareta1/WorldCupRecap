@@ -10,30 +10,12 @@
         private const string DEFAULT_IMAGE_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Images\default.jpg";
         private const string MEN_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Data\men\";
         private const string WOMEN_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Data\women\";
+        //problem with relative paths?
 
-        public void ClearConfig()
-        {
-            using (StreamWriter writer = new StreamWriter(SETTINGS_DIR))
-            {
-                writer.WriteLine("");
-                
-            }
-        }
-
-        //relativne putanje ne rade?? provjeri
         public Image GetImage(string imgPath)
         {
-            try
-            {
-                return Image.FromFile(imgPath);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            return Image.FromFile(imgPath);
         }
-
-
 
         public Image GetImageForPlayer(string playerName)
         {
@@ -49,27 +31,15 @@
 
         public IList<Match> GetMatches(Cup cup)
         {
-            try
-            {
-                return Match.FromJson(File.ReadAllText((cup == Cup.Male ? MEN_DIR : WOMEN_DIR) + "matches.json")) as IList<Match>;
+            return Match.FromJson(File.ReadAllText((cup == Cup.Male ? MEN_DIR : WOMEN_DIR) + "matches.json")) as IList<Match>;
 
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
         }
 
         public IList<Team> GetMensTeams()
         {
-            try
-            {
-                return Team.FromJson(File.ReadAllText(MEN_DIR + "teams.json"));
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+
+            return Team.FromJson(File.ReadAllText(MEN_DIR + "teams.json"));
+
         }
 
         public IList<Player> GetPlayersForTeam(Cup cup, int id)
@@ -102,26 +72,16 @@
 
         public IList<GroupResult> GetResultsForGroup(int idGroup, Cup cup)
         {
-            try
-            {
-                return GroupResult.FromJson(File.ReadAllText((cup == Cup.Male ? MEN_DIR : WOMEN_DIR) + "group_results.json"));
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+
+            return GroupResult.FromJson(File.ReadAllText((cup == Cup.Male ? MEN_DIR : WOMEN_DIR) + "group_results.json"));
+
         }
 
         public IList<TeamResult> GetResultsForTeam(int idTeam, Cup cup)
         {
-            try
-            {
-                return TeamResult.FromJson(File.ReadAllText((cup == Cup.Male ? MEN_DIR : WOMEN_DIR) + "results.json"));
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+
+            return TeamResult.FromJson(File.ReadAllText((cup == Cup.Male ? MEN_DIR : WOMEN_DIR) + "results.json"));
+
         }
 
         public Settings GetSettings()
@@ -131,16 +91,7 @@
             using (StreamReader reader = new StreamReader(SETTINGS_DIR))
             {
 
-                try
-                {
-                    s.CupChoice = reader.ReadLine().Trim() == "Female" ? Cup.Female : Cup.Male;
-                }
-                catch (Exception e)
-                {
-
-                    throw e;
-                }
-
+                s.CupChoice = reader.ReadLine().Trim() == "Female" ? Cup.Female : Cup.Male;
                 s.LanguageChoice = reader.ReadLine().Trim() == "Croatian" ? Language.Croatian : Language.English;
                 IList<Team> temp = new List<Team>();
                 if (s.CupChoice == Cup.Female)
@@ -152,7 +103,6 @@
                     temp = GetMensTeams();
                 }
                 s.FavoritePlayers = new List<Player>();
-                //LINQ ne radi?? provjeri
                 int i = int.Parse(reader.ReadLine().Trim());
                 foreach (var item in temp)
                 {
@@ -165,12 +115,9 @@
                 pl.Add(reader.ReadLine());
                 pl.Add(reader.ReadLine());
                 pl.Add(reader.ReadLine());
-
                 IList<Match> m = GetMatches(s.CupChoice);
                 Match match = m.FirstOrDefault(m => m.HomeTeam.Country == s.FavoriteTeam.Country);
                 IList<Player> players = (IList<Player>)match.HomeTeamStatistics.StartingEleven;
-                //players.Union(match.HomeTeamStatistics.Substitutes);
-                //konkatenacija nije prošla? provjeri
                 foreach (var item in match.HomeTeamStatistics.Substitutes)
                 {
                     players.Add(item);
@@ -187,25 +134,13 @@
                     }
                 }
 
-
-
-
             }
             return s;
-
-
         }
 
         public IList<Team> GetWomensTeams()
         {
-            try
-            {
-                return Team.FromJson(File.ReadAllText(WOMEN_DIR + "teams.json"));
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            return Team.FromJson(File.ReadAllText(WOMEN_DIR + "teams.json"));
         }
 
         public bool HasSettings()
@@ -225,18 +160,13 @@
 
         public void SetImageForPlayer(string playerName, Image image)
         {
-            try
+
+            if (File.Exists(IMAGES_DIR + playerName + ".png"))
             {
-                if (File.Exists(IMAGES_DIR + playerName + ".png"))
-                {
-                    File.Delete(IMAGES_DIR + playerName + ".png");
-                }
-                image.Save(IMAGES_DIR + playerName + ".png", System.Drawing.Imaging.ImageFormat.Png);
+                File.Delete(IMAGES_DIR + playerName + ".png");
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            image.Save(IMAGES_DIR + playerName + ".png", System.Drawing.Imaging.ImageFormat.Png);
+
         }
 
         public void SetSettings(Settings settings)
@@ -251,7 +181,6 @@
                 writer.WriteLine(settings.FavoritePlayers[2].Name);
             }
         }
-
 
     }
 }

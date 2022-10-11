@@ -1,7 +1,6 @@
 ﻿namespace Library.Models
 {
     using Newtonsoft.Json;
-    using System;
     using System.Collections.Generic;
 
     public partial class Match
@@ -178,8 +177,6 @@
         public IList<Player> Substitutes { get; set; }
     }
 
- 
-
     public partial class Weather
     {
         [JsonProperty("humidity")]
@@ -197,11 +194,5 @@
         [JsonProperty("description")]
         public string Description { get; set; }
     }
-
-    
-
-
-
-
 
 }

@@ -20,7 +20,7 @@
             }
             return matches;
         }
-    [JsonProperty("name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("captain")]
@@ -42,8 +42,6 @@
         {
             int temp = 0;
 
-            
-            //Union(repo.GetMatches(Cup.Female));
             foreach (var item in matches)
             {
                 item.HomeTeamEvents.ForEach(i =>
@@ -64,7 +62,6 @@
                 });
 
             }
-
 
             return temp;
         }
@@ -74,10 +71,9 @@
 
         private int GetYellowCardNumber()
         {
-            
+
             int temp = 0;
 
-            //IList<Match> matches = (IList<Match>)repo.GetMatches(Cup.Male).Union(repo.GetMatches(Cup.Female));
             foreach (var item in matches)
             {
                 item.HomeTeamEvents.ForEach(i =>
@@ -87,7 +83,7 @@
                         temp++;
                     };
 
-                    
+
                 });
                 item.AwayTeamEvents.ForEach(i =>
                 {
@@ -96,11 +92,10 @@
                         temp++;
                     };
 
-                    
-                });
-                
-            }
 
+                });
+
+            }
 
             return temp;
         }

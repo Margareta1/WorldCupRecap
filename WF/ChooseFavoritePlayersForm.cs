@@ -1,14 +1,5 @@
 ﻿using Library.Models;
 using Library.Repository;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WF
 {
@@ -49,7 +40,6 @@ namespace WF
             IList<Match> m = repo.GetMatches(settings.CupChoice);
             Match match = m.FirstOrDefault(m => m.HomeTeam.Country == t.Country);
             players = (IList<Player>)match.HomeTeamStatistics.StartingEleven;
-            //konkatenacija nije prošla? provjeri
             foreach (var item in match.HomeTeamStatistics.Substitutes)
             {
                 players.Add(item);

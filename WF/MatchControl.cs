@@ -1,13 +1,4 @@
 ﻿using Library.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WF
 {
@@ -26,7 +17,6 @@ namespace WF
             lblAttendance.Text = match.Attendance.ToString();
             lblAwayTeam.Text = match.AwayTeam.Code;
             lblHomeTeam.Text = match.HomeTeam.Code;
-
 
         }
     }

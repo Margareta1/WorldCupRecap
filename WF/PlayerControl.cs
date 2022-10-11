@@ -1,14 +1,5 @@
 ﻿using Library.Models;
 using Library.Repository;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WF
 {
@@ -44,16 +35,11 @@ namespace WF
 
             if (fileDialogPhoto.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
-                    Image image = repo.GetImage(fileDialogPhoto.FileName);
-                    pbPlayer.Image = image;
-                    repo.SetImageForPlayer(p.Name, image);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+
+                Image image = repo.GetImage(fileDialogPhoto.FileName);
+                pbPlayer.Image = image;
+                repo.SetImageForPlayer(p.Name, image);
+
             }
         }
     }
