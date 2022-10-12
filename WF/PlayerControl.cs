@@ -1,5 +1,6 @@
 ﻿using Library.Models;
 using Library.Repository;
+using System.Globalization;
 
 namespace WF
 {
@@ -9,8 +10,10 @@ namespace WF
         private Player p = new Player();
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
+
         public PlayerControl(Player player)
         {
+ 
             InitializeComponent();
             p = player;
         }

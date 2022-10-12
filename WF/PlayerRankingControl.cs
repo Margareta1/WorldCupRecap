@@ -1,5 +1,6 @@
 ﻿using Library.Models;
 using Library.Repository;
+using System.Globalization;
 
 namespace WF
 {
@@ -11,6 +12,7 @@ namespace WF
         private static IRepository repo = rf.GiveThisManARepository();
         public PlayerRankingControl(Player player)
         {
+
             InitializeComponent();
             p = player;
         }

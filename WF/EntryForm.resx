@@ -57,4 +57,247 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnWomen.Parent" xml:space="preserve">
+    <value>gbCup</value>
+  </data>
+  <data name="&gt;&gt;btnEN.Name" xml:space="preserve">
+    <value>btnEN</value>
+  </data>
+  <data name="&gt;&gt;btnHR.Name" xml:space="preserve">
+    <value>btnHR</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnHR.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnMen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 32</value>
+  </data>
+  <data name="&gt;&gt;gbCup.Name" xml:space="preserve">
+    <value>gbCup</value>
+  </data>
+  <data name="gbCup.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gbLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Choose settings</value>
+  </data>
+  <data name="&gt;&gt;gbLanguage.Name" xml:space="preserve">
+    <value>gbLanguage</value>
+  </data>
+  <data name="gbLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 92</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>EntryForm</value>
+  </data>
+  <data name="btnEN.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 46</value>
+  </data>
+  <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 41</value>
+  </data>
+  <data name="&gt;&gt;btnEN.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>482, 453</value>
+  </data>
+  <data name="btnEN.Text" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="btnHR.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnWomen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnWomen.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="gbLanguage.Text" xml:space="preserve">
+    <value>Odaberi jezik</value>
+  </data>
+  <data name="&gt;&gt;btnMen.Name" xml:space="preserve">
+    <value>btnMen</value>
+  </data>
+  <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 321</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Spremi</value>
+  </data>
+  <data name="gbCup.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="gbLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 50</value>
+  </data>
+  <data name="btnMen.Text" xml:space="preserve">
+    <value>Muško</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>255, 321</value>
+  </data>
+  <data name="&gt;&gt;gbCup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 41</value>
+  </data>
+  <data name="&gt;&gt;btnHR.Parent" xml:space="preserve">
+    <value>gbLanguage</value>
+  </data>
+  <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.8pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnWomen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 46</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="gbCup.Text" xml:space="preserve">
+    <value>Odaberi prvenstvo</value>
+  </data>
+  <data name="&gt;&gt;btnEN.Parent" xml:space="preserve">
+    <value>gbLanguage</value>
+  </data>
+  <data name="gbLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="btnMen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 46</value>
+  </data>
+  <data name="&gt;&gt;btnMen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbLanguage.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnHR.Text" xml:space="preserve">
+    <value>HR</value>
+  </data>
+  <data name="&gt;&gt;btnHR.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;gbLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="btnEN.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 32</value>
+  </data>
+  <data name="btnEN.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnMen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnWomen.Name" xml:space="preserve">
+    <value>btnWomen</value>
+  </data>
+  <data name="&gt;&gt;btnEN.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gbCup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 92</value>
+  </data>
+  <data name="btnEN.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnHR.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 46</value>
+  </data>
+  <data name="&gt;&gt;btnMen.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnWomen.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnWomen.Text" xml:space="preserve">
+    <value>Žensko</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="&gt;&gt;gbCup.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.8pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;gbLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnHR.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnHR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 32</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
+  </data>
+  <data name="gbCup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 180</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnMen.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnMen.Parent" xml:space="preserve">
+    <value>gbCup</value>
+  </data>
+  <data name="&gt;&gt;gbCup.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="btnSave.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnWomen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnWomen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>hr</value>
+  </metadata>
 </root>

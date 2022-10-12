@@ -1,5 +1,6 @@
 ﻿using Library.Models;
 using Library.Repository;
+using System.Globalization;
 
 namespace WF
 {
@@ -14,12 +15,19 @@ namespace WF
         private Font txtFont = new Font("Lucida Console", 10);
         public MainForm()
         {
+            InitCulture(s);
             InitializeComponent();
         }
+        private void InitCulture(Settings s)
+        {
+            CultureInfo culture = new CultureInfo(s.LanguageChoice == Language.Croatian ? "hr" : "en");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+
             InitPlayerControls();
             InitRankings();
 
@@ -30,7 +38,7 @@ namespace WF
             InitPlayersRankedByGoals();
             InitPlayersRankedByYC();
             InitMatchRankings();
-            
+
         }
 
         private void InitMatchRankings()
@@ -98,7 +106,7 @@ namespace WF
             {
                 flpFavorites.Controls.Add(new PlayerControl(item));
             }
-            
+
             foreach (var item in tempPlayer)
             {
                 flpPlayers.Controls.Add(new PlayerControl(item));
@@ -107,12 +115,12 @@ namespace WF
 
         private void btnChangeLan_Click(object sender, EventArgs e)
         {
-            
+
             ChangeLanguageForm clf = new ChangeLanguageForm();
             if (clf.ShowDialog() == DialogResult.OK)
             {
                 ChangeLanguage();
-                
+
             }
 
         }
@@ -122,22 +130,29 @@ namespace WF
 
             Settings s = repo.GetSettings();
             Settings newSettings = s;
-            if (s.LanguageChoice==Language.English)
+            if (s.LanguageChoice == Language.English)
             {
                 newSettings.LanguageChoice = Language.Croatian;
+
+
             }
             else
             {
                 newSettings.LanguageChoice = Language.English;
             }
             repo.SetSettings(newSettings);
+            this.Controls.Clear();
+            InitCulture(newSettings);
+            InitializeComponent();
+            InitPlayerControls();
+            InitRankings();
 
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            
+
             var exit = new ExitForm();
             if (exit.ShowDialog() == DialogResult.Cancel)
             {

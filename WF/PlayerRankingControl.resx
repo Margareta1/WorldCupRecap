@@ -57,4 +57,165 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblYC.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblYCNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblGoals.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 121</value>
+  </data>
+  <data name="lblGoalsNum.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblGoalsNum.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblYC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 20</value>
+  </data>
+  <data name="lblGoals.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pbPlayer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblGoals.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pbPlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="&gt;&gt;lblYC.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="lblYCNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 20</value>
+  </data>
+  <data name="&gt;&gt;lblYCNumber.Name" xml:space="preserve">
+    <value>lblYCNumber</value>
+  </data>
+  <data name="&gt;&gt;pbPlayer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblYC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 61</value>
+  </data>
+  <data name="&gt;&gt;lblYCNumber.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>PlayerRankingControl</value>
+  </data>
+  <data name="lblYCNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 89</value>
+  </data>
+  <data name="&gt;&gt;lblGoals.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbPlayer.Name" xml:space="preserve">
+    <value>pbPlayer</value>
+  </data>
+  <data name="&gt;&gt;lblGoalsNum.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblGoalsNum.Name" xml:space="preserve">
+    <value>lblGoalsNum</value>
+  </data>
+  <data name="pbPlayer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 9</value>
+  </data>
+  <data name="&gt;&gt;lblYC.Name" xml:space="preserve">
+    <value>lblYC</value>
+  </data>
+  <data name="&gt;&gt;lblName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbPlayer.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblGoals.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pbPlayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblGoals.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 20</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 150</value>
+  </data>
+  <data name="lblGoalsNum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 20</value>
+  </data>
+  <data name="lblGoalsNum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 35</value>
+  </data>
+  <data name="lblGoals.Text" xml:space="preserve">
+    <value>Goals</value>
+  </data>
+  <data name="lblYC.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 20</value>
+  </data>
+  <data name="&gt;&gt;lblYC.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblGoalsNum.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblYCNumber.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblName.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblGoals.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 9</value>
+  </data>
+  <data name="&gt;&gt;lblYCNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblYC.Text" xml:space="preserve">
+    <value>Yellow cards</value>
+  </data>
+  <data name="&gt;&gt;lblGoalsNum.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblGoals.Name" xml:space="preserve">
+    <value>lblGoals</value>
+  </data>
+  <data name="&gt;&gt;lblName.Name" xml:space="preserve">
+    <value>lblName</value>
+  </data>
+  <data name="&gt;&gt;lblYC.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblYCNumber.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
 </root>

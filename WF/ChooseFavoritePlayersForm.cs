@@ -1,5 +1,6 @@
 ﻿using Library.Models;
 using Library.Repository;
+using System.Globalization;
 
 namespace WF
 {
@@ -10,10 +11,17 @@ namespace WF
         private static IRepository repo = rf.GiveThisManARepository();
         public ChooseFavoritePlayersForm(Settings s)
         {
+            InitCulture(s);
             InitializeComponent();
             settings = s;
         }
+        private void InitCulture(Settings s)
+        {
+            CultureInfo culture = new CultureInfo(s.LanguageChoice == Language.Croatian ? "hr" : "en");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (cbFP1.SelectedItem!=null &&cbFP2.SelectedItem!=null && cbFP3.SelectedItem!=null)

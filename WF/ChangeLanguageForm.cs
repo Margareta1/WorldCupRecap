@@ -1,5 +1,6 @@
 ﻿using Library.Models;
 using Library.Repository;
+using System.Globalization;
 
 namespace WF
 {
@@ -12,8 +13,17 @@ namespace WF
 
         public ChangeLanguageForm()
         {
+            InitCulture(repo.GetSettings());
             InitializeComponent();
             
+        }
+
+        private void InitCulture(Settings s)
+        {
+            CultureInfo culture = new CultureInfo(s.LanguageChoice == Language.Croatian ? "hr" : "en");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
         }
 
         private void ChangeLanguageForm_Load(object sender, EventArgs e)
@@ -30,7 +40,7 @@ namespace WF
             }
             else
             {
-                lblSwitch.Text = "Switch to EN?";
+                lblSwitch.Text = "Prebaci se na EN?";
             }
 
         }

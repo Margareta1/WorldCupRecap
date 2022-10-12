@@ -1,5 +1,6 @@
 ﻿using Library.Models;
 using Library.Repository;
+using System.Globalization;
 
 namespace WF
 {
@@ -10,11 +11,20 @@ namespace WF
         private static IRepository repo = rf.GiveThisManARepository();
         public ChooseFavoriteTeamForm(Settings s)
         {
-            
+            InitCulture(s);
             InitializeComponent();
             settings = s;
+            
         }
-        
+
+        private void InitCulture(Settings s)
+        {
+            CultureInfo culture = new CultureInfo(s.LanguageChoice == Language.Croatian ? "hr" : "en");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
+        }
+
         private void GetTeamsSource()
         {
             IList<Team> teams = new List<Team>();

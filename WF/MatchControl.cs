@@ -1,9 +1,12 @@
 ﻿using Library.Models;
+using Library.Repository;
+using System.Globalization;
 
 namespace WF
 {
     public partial class MatchControl : UserControl
     {
+
         private Match match = new Match();
         public MatchControl(Match m)
         {
@@ -19,5 +22,6 @@ namespace WF
             lblHomeTeam.Text = match.HomeTeam.Code;
 
         }
+
     }
 }

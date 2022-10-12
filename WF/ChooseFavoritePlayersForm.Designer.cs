@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseFavoritePlayersForm));
             this.btnSave = new System.Windows.Forms.Button();
             this.cbFP1 = new System.Windows.Forms.ComboBox();
             this.cbFP3 = new System.Windows.Forms.ComboBox();
@@ -36,55 +37,38 @@
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.ForeColor = System.Drawing.Color.IndianRed;
-            this.btnSave.Location = new System.Drawing.Point(166, 256);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(98, 46);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbFP1
             // 
-            this.cbFP1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(this.cbFP1, "cbFP1");
             this.cbFP1.ForeColor = System.Drawing.Color.IndianRed;
             this.cbFP1.FormattingEnabled = true;
-            this.cbFP1.Location = new System.Drawing.Point(48, 64);
             this.cbFP1.Name = "cbFP1";
-            this.cbFP1.Size = new System.Drawing.Size(337, 39);
-            this.cbFP1.TabIndex = 2;
-            this.cbFP1.Text = "Choose a favorite player";
             // 
             // cbFP3
             // 
-            this.cbFP3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(this.cbFP3, "cbFP3");
             this.cbFP3.ForeColor = System.Drawing.Color.IndianRed;
             this.cbFP3.FormattingEnabled = true;
-            this.cbFP3.Location = new System.Drawing.Point(48, 174);
             this.cbFP3.Name = "cbFP3";
-            this.cbFP3.Size = new System.Drawing.Size(337, 39);
-            this.cbFP3.TabIndex = 4;
-            this.cbFP3.Text = "Choose a favorite player";
             // 
             // cbFP2
             // 
-            this.cbFP2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(this.cbFP2, "cbFP2");
             this.cbFP2.ForeColor = System.Drawing.Color.IndianRed;
             this.cbFP2.FormattingEnabled = true;
-            this.cbFP2.Location = new System.Drawing.Point(48, 119);
             this.cbFP2.Name = "cbFP2";
-            this.cbFP2.Size = new System.Drawing.Size(337, 39);
-            this.cbFP2.TabIndex = 5;
-            this.cbFP2.Text = "Choose a favorite player";
             // 
             // ChooseFavoritePlayersForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.IndianRed;
-            this.ClientSize = new System.Drawing.Size(432, 403);
             this.Controls.Add(this.cbFP2);
             this.Controls.Add(this.cbFP3);
             this.Controls.Add(this.btnSave);
@@ -94,8 +78,6 @@
             this.MinimizeBox = false;
             this.Name = "ChooseFavoritePlayersForm";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Choose favorite players";
             this.Load += new System.EventHandler(this.ChooseFavoritePlayersForm_Load);
             this.ResumeLayout(false);
 
