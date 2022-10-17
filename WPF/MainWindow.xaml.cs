@@ -24,12 +24,32 @@ namespace WPF
     {
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
-        private static Settings settings = repo.GetSettings();
+        private static Settings settings = new Settings();
+
         public Team oppositeTeam = new Team();
         public MainWindow(Team t)
         {
             oppositeTeam = t;
             InitializeComponent();
+            CallSettings();
+        }
+
+        private void CallSettings()
+        {
+            try
+            {
+                settings = repo.GetSettings();
+            }
+            catch (Exception)
+            {
+                settings.LanguageChoice = Library.Models.Language.Croatian;
+                settings.CupChoice = Cup.Female;
+                settings.FavoriteTeam = repo.GetWomensTeams()[0];
+                IList<Player> players = repo.GetPlayersForTeam(Cup.Female, (int)settings.FavoriteTeam.Id);
+                settings.FavoritePlayers[0] = players[0];
+                settings.FavoritePlayers[1] = players[1];
+                settings.FavoritePlayers[2] = players[2];
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -54,9 +74,10 @@ namespace WPF
 
                 case Resolution.Medium:
                     WindowState = WindowState.Normal;
+                    Width = 1000;
+                    Height = 700;                    
                     WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                    Width = 1200;
-                    Height = 900;
+
                     //FieldGrid.Width = 400;
                     //FieldGrid.Height = 600;
                     //miniPlayerSize = new Size(40, 40);

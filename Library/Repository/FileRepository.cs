@@ -162,7 +162,11 @@
                     }
                 }
 
+
             }
+
+
+
             return s;
         }
 
@@ -172,7 +176,7 @@
             IList<Match> matches = GetMatches(cup);
             foreach (var item in matches)
             {
-                if (item.AwayTeam.Code==code)
+                if (item.AwayTeam.Code == code)
                 {
                     team = item.AwayTeam;
                 }
@@ -181,7 +185,7 @@
             IList<Team> teams = cup == Cup.Female ? GetWomensTeams() : GetMensTeams();
             foreach (var item in teams)
             {
-                if (item.FifaCode==team.Code)
+                if (item.FifaCode == team.Code)
                 {
                     t = item;
                 }
@@ -226,7 +230,7 @@
             using (StreamWriter writer = new StreamWriter(RESOLUTION_DIR))
             {
                 writer.WriteLine(resolution.ToString());
-                
+
             }
         }
 

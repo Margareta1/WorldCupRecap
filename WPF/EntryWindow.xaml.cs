@@ -22,12 +22,37 @@ namespace WPF
     {
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
-        private static Settings settings = repo.GetSettings();
+        private static Settings settings = new Settings();
         public EntryWindow()
         {
             InitializeComponent();
+            CallSettings();
         }
-
+        private void CallSettings()
+        {
+            try
+            {
+                settings = repo.GetSettings();
+            }
+            catch (Exception)
+            {
+                settings = new Settings();
+                settings.LanguageChoice = Library.Models.Language.Croatian;
+                settings.CupChoice = Cup.Female;
+                settings.FavoriteTeam = repo.GetWomensTeams()[0];
+                IList<Player> players = repo.GetPlayersForTeam(Cup.Female, (int)settings.FavoriteTeam.Id);
+                Player first = new Player();
+                IList<Player> temp = new List<Player>();
+                first = players[0];
+                temp.Add(first);
+                first = players[1];
+                temp.Add(first);
+                first = players[2]; 
+                temp.Add(first);
+                settings.FavoritePlayers = temp;
+                repo.SetSettings(settings);
+            }
+        }
         private void btnContinue_Click(object sender, RoutedEventArgs e)
         {
             ComboBoxItem item = (ComboBoxItem)cbResolution.SelectedItem;
