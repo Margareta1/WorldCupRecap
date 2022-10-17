@@ -14,22 +14,42 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WPF
 {
-
-    public partial class MainWindow : Window
+    public partial class EntryWindow : Window
     {
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
         private static Settings settings = repo.GetSettings();
-        public Team oppositeTeam = new Team();
-        public MainWindow(Team t)
+        public EntryWindow()
         {
-            oppositeTeam = t;
             InitializeComponent();
+        }
+
+        private void btnContinue_Click(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem item = (ComboBoxItem)cbResolution.SelectedItem;
+            Resolution r = new Resolution();
+            switch (item.Content.ToString())
+            {
+                case "Large":
+                    r = Resolution.Large;
+                    break;
+                case "Medium":
+                    r = Resolution.Medium;
+                    break;
+                case "Small":
+                    r = Resolution.Small;
+                    break;
+                default:
+                    r = Resolution.Large;
+                    break;
+            }
+            repo.SetResolution(r);
+            (new ChooseTeam()).Show();
+            this.Hide();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -39,15 +59,10 @@ namespace WPF
 
         private void InitSettings()
         {
+
             CultureInfo culture = new CultureInfo(settings.LanguageChoice == Library.Models.Language.Croatian ? "hr" : "en");
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
-
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            System.Windows.Application.Current.Shutdown();
 
         }
     }

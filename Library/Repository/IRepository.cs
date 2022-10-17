@@ -17,6 +17,9 @@
         bool HasSettings();
         Image GetImage(string imgPath);
         public IList<Player> GetPlayersForTeam(Cup cup, int id);
+        public Resolution GetResolution();
+        public void SetResolution(Resolution resolution);
+        public Team GetTeamByFifaCode(string code, Cup cup);
 
     }
 }

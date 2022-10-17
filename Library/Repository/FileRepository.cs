@@ -10,6 +10,7 @@
         private const string DEFAULT_IMAGE_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Images\default.jpg";
         private const string MEN_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Data\men\";
         private const string WOMEN_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Data\women\";
+        private const string RESOLUTION_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Configuration\Resolution.txt";
         //problem with relative paths?
 
         public Image GetImage(string imgPath)
@@ -68,6 +69,33 @@
             }
             return players;
 
+        }
+
+        public Resolution GetResolution()
+        {
+            using (StreamReader reader = new StreamReader(RESOLUTION_DIR))
+            {
+                string res = reader.ReadLine().Trim();
+                Resolution resolution = new Resolution();
+                switch (res)
+                {
+                    case "Large":
+                        resolution = Resolution.Large;
+                        break;
+                    case "Medium":
+                        resolution = Resolution.Medium;
+                        break;
+                    case "Small":
+                        resolution = Resolution.Small;
+                        break;
+                    default:
+                        resolution = Resolution.Large;
+                        break;
+                }
+
+                return resolution;
+
+            }
         }
 
         public IList<GroupResult> GetResultsForGroup(int idGroup, Cup cup)
@@ -138,6 +166,30 @@
             return s;
         }
 
+        public Team GetTeamByFifaCode(string code, Cup cup)
+        {
+            MatchTeam team = new MatchTeam();
+            IList<Match> matches = GetMatches(cup);
+            foreach (var item in matches)
+            {
+                if (item.AwayTeam.Code==code)
+                {
+                    team = item.AwayTeam;
+                }
+            }
+            Team t = new Team();
+            IList<Team> teams = cup == Cup.Female ? GetWomensTeams() : GetMensTeams();
+            foreach (var item in teams)
+            {
+                if (item.FifaCode==team.Code)
+                {
+                    t = item;
+                }
+            }
+            return t;
+
+        }
+
         public IList<Team> GetWomensTeams()
         {
             return Team.FromJson(File.ReadAllText(WOMEN_DIR + "teams.json"));
@@ -167,6 +219,15 @@
             }
             image.Save(IMAGES_DIR + playerName + ".png", System.Drawing.Imaging.ImageFormat.Png);
 
+        }
+
+        public void SetResolution(Resolution resolution)
+        {
+            using (StreamWriter writer = new StreamWriter(RESOLUTION_DIR))
+            {
+                writer.WriteLine(resolution.ToString());
+                
+            }
         }
 
         public void SetSettings(Settings settings)
