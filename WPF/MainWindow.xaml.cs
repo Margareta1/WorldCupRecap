@@ -35,6 +35,54 @@ namespace WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitSettings();
+            InitResolution();
+        }
+
+        private void InitResolution()
+        {
+
+            switch (repo.GetResolution())
+            {
+                case Resolution.Large:
+                    WindowState = WindowState.Maximized;
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    //FieldGrid.Width = 600;
+                    //FieldGrid.Height = 900;
+                    //miniPlayerSize = new Size(50, 50);
+                    //miniPlayerMargin = 30;
+                    break;
+
+                case Resolution.Medium:
+                    WindowState = WindowState.Normal;
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    Width = 1200;
+                    Height = 900;
+                    //FieldGrid.Width = 400;
+                    //FieldGrid.Height = 600;
+                    //miniPlayerSize = new Size(40, 40);
+                    //miniPlayerMargin = 20;
+                    break;
+
+                case Resolution.Small:
+                    WindowState = WindowState.Normal;
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    Width = 800;
+                    Height = 600;
+                    //FieldGrid.Width = 250;
+                    //FieldGrid.Height = 375;
+                    //miniPlayerSize = new Size(25, 25);
+                    //miniPlayerMargin = 10;
+                    break;
+                default:
+                    WindowState = WindowState.Maximized;
+                    WindowStyle = WindowStyle.None;
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    //FieldGrid.Width = 600;
+                    //FieldGrid.Height = 900;
+                    //miniPlayerSize = new Size(50, 50);
+                    //miniPlayerMargin = 30;
+                    break;
+            }
         }
 
         private void InitSettings()
