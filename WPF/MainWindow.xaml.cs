@@ -25,8 +25,8 @@ namespace WPF
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
         private static Settings settings = new Settings();
-
         public Team oppositeTeam = new Team();
+        public Match match = new Match();
         public MainWindow(Team t)
         {
             oppositeTeam = t;
@@ -56,6 +56,18 @@ namespace WPF
         {
             InitSettings();
             InitResolution();
+            InitLabels();
+
+        }
+
+        private void InitLabels()
+        {
+            IList<Match> matches = repo.GetMatches(settings.CupChoice);
+            bool favoriteTeamIsHome = true;
+            match = matches.FirstOrDefault(m=> (m.HomeTeam.Code==oppositeTeam.FifaCode && m.AwayTeam.Code==settings.FavoriteTeam.FifaCode)|| (m.AwayTeam.Code == oppositeTeam.FifaCode && m.HomeTeam.Code == settings.FavoriteTeam.FifaCode));
+            lblOppositeTeamName.Content = oppositeTeam.Country;
+            lblHomeTeam.Content = settings.FavoriteTeam.Country;
+            lblScore.Content = favoriteTeamIsHome==true ? $"{match.HomeTeam.Goals} : {match.AwayTeam.Goals}" : $"{match.AwayTeam.Goals} : {match.HomeTeam.Goals}";
         }
 
         private void InitResolution()
@@ -66,8 +78,8 @@ namespace WPF
                 case Resolution.Large:
                     WindowState = WindowState.Maximized;
                     WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                    //FieldGrid.Width = 600;
-                    //FieldGrid.Height = 900;
+                    imgField.Width = 600;
+                    imgField.Height = 900;
                     //miniPlayerSize = new Size(50, 50);
                     //miniPlayerMargin = 30;
                     break;
@@ -77,9 +89,8 @@ namespace WPF
                     Width = 1000;
                     Height = 700;                    
                     WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-                    //FieldGrid.Width = 400;
-                    //FieldGrid.Height = 600;
+                    imgField.Width = 400;
+                    imgField.Height = 600;
                     //miniPlayerSize = new Size(40, 40);
                     //miniPlayerMargin = 20;
                     break;
@@ -89,8 +100,8 @@ namespace WPF
                     WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     Width = 800;
                     Height = 600;
-                    //FieldGrid.Width = 250;
-                    //FieldGrid.Height = 375;
+                    imgField.Width = 250;
+                    imgField.Height = 375;
                     //miniPlayerSize = new Size(25, 25);
                     //miniPlayerMargin = 10;
                     break;
@@ -98,8 +109,8 @@ namespace WPF
                     WindowState = WindowState.Maximized;
                     WindowStyle = WindowStyle.None;
                     WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                    //FieldGrid.Width = 600;
-                    //FieldGrid.Height = 900;
+                    imgField.Width = 600;
+                    imgField.Height = 900;
                     //miniPlayerSize = new Size(50, 50);
                     //miniPlayerMargin = 30;
                     break;
@@ -118,6 +129,43 @@ namespace WPF
         {
             System.Windows.Application.Current.Shutdown();
 
+        }
+
+        private void btnOppositeTeam_Click(object sender, RoutedEventArgs e)
+        {
+            (new TeamStatisticsWindow(oppositeTeam, settings.CupChoice)).ShowDialog();
+        }
+
+        private void btnHomeTeam_Click(object sender, RoutedEventArgs e)
+        {
+            (new TeamStatisticsWindow(settings.FavoriteTeam, settings.CupChoice)).ShowDialog();
+        }
+
+        private void btnChangeHomeTeam_Click(object sender, RoutedEventArgs e)
+        {
+            (new ChangeFavoriteTeamWindow(settings.CupChoice)).Show();
+            this.Hide();
+        }
+
+        private void btnChangeLanguage_Click(object sender, RoutedEventArgs e)
+        {
+            if ((new ChangeLanguageWindow()).ShowDialog() == true)
+            {
+                ChangeLanguage();
+            }
+        }
+
+        private void ChangeLanguage()
+        {
+            CultureInfo culture = new CultureInfo(settings.LanguageChoice == Library.Models.Language.Croatian ? "en" : "hr");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+        }
+
+        private void btnChangeOppositeTeam_Click(object sender, RoutedEventArgs e)
+        {
+            (new ChooseTeam()).ShowDialog();
+            this.Hide();
         }
     }
 }

@@ -19,24 +19,35 @@ using System.Windows.Shapes;
 namespace WPF
 {
 
-    public partial class ChooseTeam : Window
+    public partial class ChangeFavoriteTeamWindow : Window
     {
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
-        private static Settings settings = new Settings();
-        public ChooseTeam()
+        private static Cup cup = new Cup();
+        private static Settings settings = repo.GetSettings();
+        public ChangeFavoriteTeamWindow(Cup c)
         {
+            cup = c;
             InitializeComponent();
-            settings = repo.GetSettings();
         }
 
         private void btnContinue_Click(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem item = (ComboBoxItem)cbOppositeTeam.SelectedItem;
+            ComboBoxItem item = (ComboBoxItem)cbFavoriteTeam.SelectedItem;
             string tag = item.Tag.ToString();
             Team t = repo.GetTeamByFifaCode(tag, settings.CupChoice);
-            (new MainWindow(t)).Show();
+            settings.FavoriteTeam = t;
+            IList<Player> players = repo.GetPlayersForTeam(settings.CupChoice, (int)t.Id);
+            Player pl = players[0];
+            settings.FavoritePlayers[0] = pl;
+            pl = players[0];
+            settings.FavoritePlayers[1] = pl;
+            pl = players[1];
+            settings.FavoritePlayers[2] = pl;
+            repo.SetSettings(settings);
             this.Hide();
+            (new ChooseTeam()).Show();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -47,33 +58,19 @@ namespace WPF
 
         private void InitComboBox()
         {
-            IList<Team> teams = new List<Team>();
-            Team t = settings.FavoriteTeam;
-            IList<Match> allMatches = repo.GetMatches(settings.CupChoice==Cup.Female ? Cup.Female : Cup.Male);
-            foreach (var item in allMatches)
-            {
-                if (item.AwayTeam.Code==t.FifaCode)
-                {
-                    teams.Add(repo.GetTeamByFifaCode(item.HomeTeam.Code, settings.CupChoice));
-                }
-                if (item.HomeTeam.Code == t.FifaCode)
-                {
-                    teams.Add(repo.GetTeamByFifaCode(item.AwayTeam.Code, settings.CupChoice));
-                }
-            }
-
+            IList<Team> teams = cup == Cup.Female ? repo.GetWomensTeams() : repo.GetMensTeams();
+            
             foreach (var item in teams)
             {
                 ComboBoxItem it = new ComboBoxItem();
                 it.Content = item.Country;
                 it.Tag = item.FifaCode;
-                if (item==teams[0])
+                if (item == teams[0])
                 {
                     it.IsSelected = true;
                 }
-                cbOppositeTeam.Items.Add(it);
+                cbFavoriteTeam.Items.Add(it);
             }
-
         }
 
         private void InitSettings()
