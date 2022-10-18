@@ -27,6 +27,9 @@ namespace WPF
         private static Settings settings = new Settings();
         public Team oppositeTeam = new Team();
         public Match match = new Match();
+
+
+
         public MainWindow(Team t)
         {
             oppositeTeam = t;
@@ -57,7 +60,70 @@ namespace WPF
             InitSettings();
             InitResolution();
             InitLabels();
+            InitPlayerControls();
 
+        }
+
+        private void InitPlayerControls()
+        {
+            foreach (var item in match.AwayTeamStatistics.StartingEleven)
+            {
+                SetAwayTeamControl(item);
+            }
+            foreach (var item in match.HomeTeamStatistics.StartingEleven)
+            {
+                SetHomeTeamControl(item);
+            }
+        }
+
+        private void SetHomeTeamControl(Player player)
+        {
+            PlayerControl pc = new PlayerControl(player);
+
+            pc.MouseLeftButtonDown += PlayerControl_MouseLeftButtonDown;
+            switch (player.Position)
+            {
+                case "Goalie":
+                    wpHomeGoalie.Children.Add(pc);
+                    break;
+                case "Defender":
+                    wpHomeDefenders.Children.Add(pc);
+                    break;
+                case "Midfield":
+                    wpHomeMidfielders.Children.Add(pc);
+                    break;
+                case "Forward":
+                    wpHomeAttackers.Children.Add(pc);
+                    break;
+            }
+        }
+        private void PlayerControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            PlayerControl pc = (PlayerControl)sender;
+            PlayerWindow window = new PlayerWindow(pc.player,match);
+            window.ShowDialog();
+        }
+
+        private void SetAwayTeamControl(Player player)
+        {
+            PlayerControl pc = new PlayerControl(player);
+
+            pc.MouseLeftButtonDown += PlayerControl_MouseLeftButtonDown;
+            switch (player.Position)
+            {
+                case "Goalie":
+                    wpAwayGoalie.Children.Add(pc);
+                    break;
+                case "Defender":
+                    wpAwayDefenders.Children.Add(pc);
+                    break;
+                case "Midfield":
+                    wpAwayMidfielders.Children.Add(pc);
+                    break;
+                case "Forward":
+                    wpAwayAttackers.Children.Add(pc);
+                    break;
+            }
         }
 
         private void InitLabels()
