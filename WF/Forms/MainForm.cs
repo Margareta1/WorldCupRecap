@@ -153,11 +153,13 @@ namespace WF
         {
             base.OnFormClosing(e);
 
-            var exit = new ExitForm();
-            if (exit.ShowDialog() == DialogResult.Cancel)
-            {
-                e.Cancel = true;
-            }
+            //var exit = new ExitForm();
+            //if (exit.ShowDialog() == DialogResult.Cancel)
+            //{
+            //    e.Cancel = true;
+            //}
+            Application.Exit();
+            
         }
 
         private void printDocGoalRankings_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

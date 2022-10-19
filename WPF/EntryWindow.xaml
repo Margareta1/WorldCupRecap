@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
-        Title="Choose Resolution" Height="400" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="Choose resolution" Height="400" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
-        <Label x:Name="lblResolution" Content="Choose resolution:" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24
+        <Label x:Name="lblResolution" Content="Screensize" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24
          " />
         <ComboBox x:Name="cbResolution" HorizontalAlignment="Center" Width="250" FontSize="16" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <ComboBoxItem Tag="Large" IsSelected="True" Content="Large"/>
             <ComboBoxItem Tag="Medium" Content="Medium" />
             <ComboBoxItem Tag="Small" Content="Small"/>
         </ComboBox>
-        <Button x:Name="btnContinue" HorizontalAlignment="Center" Width="150" Height="30" Margin="0,215,0,35" Content="Continue"  Click="btnContinue_Click"/>
+        <Button x:Name="btnContinue" HorizontalAlignment="Center" Width="150" Height="30" Margin="0,215,0,35" Content="GO"  Click="btnContinue_Click"/>
     </Grid>
 </Window>

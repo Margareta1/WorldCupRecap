@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
+        xmlns:lang="clr-namespace:WPF.Properties"
         mc:Ignorable="d"
         Title="Team statistics" Height="450" Width="800" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
@@ -22,44 +23,44 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <WrapPanel Grid.Row="0">
-            <Label x:Name="lbTeamNameTitle" Content="Name: " FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamNameTitle" Content="{x:Static lang:Resources.lblTeamName}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamName" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
         <WrapPanel Grid.Row="1">
-            <Label x:Name="lbTeamFifaCodeTitle" Content="Fifa code:" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamFifaCodeTitle" Content="{x:Static lang:Resources.lblFifaCode}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamFifaCode" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
         <WrapPanel Grid.Row="2">
 
-            <Label x:Name="lbTeamPlayedMatchesTitle" Content="Played matches:" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamPlayedMatchesTitle" Content="{x:Static lang:Resources.lblPlayedMatches}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamPlayedMatches" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
         <WrapPanel Grid.Row="3">
 
-            <Label x:Name="lbTeamMatchesWonTitle" Content="Matches won:" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamMatchesWonTitle" Content="{x:Static lang:Resources.lblMatchesWon}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamMatchesWon" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
         <WrapPanel Grid.Row="4">
 
-            <Label x:Name="lbTeamMatchesLostTitle" Content="Matches lost:" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamMatchesLostTitle" Content="{x:Static lang:Resources.lblMatchesLost}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamMatchesLost" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
         <WrapPanel Grid.Row="5">
 
-            <Label x:Name="lbTeamDrawsTitle" Content="Draws:" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamDrawsTitle" Content="{x:Static lang:Resources.lblDraws}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamDraws" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
         <WrapPanel Grid.Row="6">
 
-            <Label x:Name="lbTeamGoalsForTitle" Content="Goals for:" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamGoalsForTitle" Content="{x:Static lang:Resources.lblGoalsFor}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamGoalsFor" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
         <WrapPanel Grid.Row="7">
-            <Label x:Name="lbTeamGoalsAgainstTitle" Content="Goals against:" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamGoalsAgainstTitle" Content="{x:Static lang:Resources.lblGoalsAgainst}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamGoalsAgainst" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
         <WrapPanel Grid.Row="8">
-            <Label x:Name="lbTeamGoalDifferentialTitle" Content="Goal differential:" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="lbTeamGoalDifferentialTitle" Content="{x:Static lang:Resources.lblGoalDifferential}" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <Label x:Name="lbTeamGoalDifferential" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </WrapPanel>
     </Grid>

@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
+        xmlns:lang="clr-namespace:WPF.Properties"
         mc:Ignorable="d"
         Title="Change language" Height="400" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
         <Label x:Name="lblChange" Content=":" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"/>
         
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50">
-            <Button x:Name="btnAccept" HorizontalAlignment="Center" Width="150" Height="30"  Content="Yes" Click="btnAccept_Click"/>
-        <Button x:Name="btnCancel" HorizontalAlignment="Center" Width="150" Height="30"  Content="No" Click="btnCancel_Click"/>
+            <Button x:Name="btnAccept" HorizontalAlignment="Center" Width="150" Height="30"  Content="{x:Static lang:Resources.lblYes}" Click="btnAccept_Click"/>
+            <Button x:Name="btnCancel" HorizontalAlignment="Center" Width="150" Height="30"  Content="{x:Static lang:Resources.lblNo}" Click="btnCancel_Click"/>
         </WrapPanel>
         
     </Grid>

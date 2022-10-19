@@ -2,8 +2,10 @@
 using Library.Repository;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,13 +28,22 @@ namespace WPF
         public Team team = new Team();
         public Cup cup = new Cup();
         public TeamResult teamResults;
+        public Settings settings;
         public TeamStatisticsWindow(Team t, Cup c)
         {
             teamResults   = new TeamResult();
             team = t;
             cup = c;
             InitializeComponent();
+           
             
+        }
+
+        private void SetCulture()
+        {
+            CultureInfo culture = new CultureInfo(settings.LanguageChoice == Library.Models.Language.Croatian ? "hr" : "en");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
         }
 
         private void InitLabels()
@@ -54,7 +65,9 @@ namespace WPF
         {
             
             InitLabels();
-            
+            settings = repo.GetSettings();
+            SetCulture();
+
         }
     }
 }

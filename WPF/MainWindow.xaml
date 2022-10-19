@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
+        xmlns:lang="clr-namespace:WPF.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Aplikacija" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid Grid.Row="1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.8*"/>
@@ -17,17 +18,17 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"  >
-            <Button Grid.Column="0"  x:Name="btnChangeHomeTeam" Content="Change home team" Width="150" Height="35" Click="btnChangeHomeTeam_Click"   />
-            <Button Grid.Column="0" x:Name="btnChangeLanguage" Content="Change language" Width="150" Height="35" Click="btnChangeLanguage_Click" />
-            <Button Grid.Column="0" x:Name="btnChangeOppositeTeam" Content="Change opposite team" Width="150" Height="35" Click="btnChangeOppositeTeam_Click"  />
-            <Label Grid.Column="0" x:Name="lblScoreTitle" Content="Score:" Width="70" Height="35" FontSize="20"/>
-            <Label Grid.Column="0" x:Name="lblScore" Width="150" Height="35" FontSize="20" />
+            <Button Grid.Column="0"  x:Name="btnChangeHomeTeam" Content="{x:Static lang:Resources.btnChangeHomeTeam}" Width="150" Height="35" Click="btnChangeHomeTeam_Click"   />
+            <Button Grid.Column="0" x:Name="btnChangeLanguage" Content="{x:Static lang:Resources.btnChangeLanguage}" Width="150" Height="35" Click="btnChangeLanguage_Click" />
+            <Button Grid.Column="0" x:Name="btnChangeOppositeTeam" Content="{x:Static lang:Resources.btnChangeOppositeTeam}" Width="150" Height="35" Click="btnChangeOppositeTeam_Click"  />
+            <Label Grid.Column="0" x:Name="lblScoreTitle" Content="{x:Static lang:Resources.lblScore}" Width="92" Height="34" FontSize="20"/>
+            <Label Grid.Column="0" x:Name="lblScore" Width="122" Height="34" FontSize="20" />
         </DockPanel>
 
         <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="LeftToRight"  Orientation="Vertical">
-            <Label x:Name="lblHomeTeamTitle" Content="Favourite team:" FontSize="20" HorizontalAlignment="Center"/>
+            <Label x:Name="lblHomeTeamTitle" Content="{x:Static lang:Resources.lblFavoriteTeam}" FontSize="20" HorizontalAlignment="Center"/>
             <Label x:Name="lblHomeTeam" Content="" FontSize="18" HorizontalAlignment="Center" Margin="0,20"/>
-            <Button x:Name="btnHomeTeam" Content="Stats" Width="100" Height="35" Click="btnHomeTeam_Click" />
+            <Button x:Name="btnHomeTeam" Content="{x:Static lang:Resources.btnStats}" Width="100" Height="35" Click="btnHomeTeam_Click" />
         </WrapPanel>
         <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
             <Grid x:Name="imgField" Height="375" Width="250" MinWidth="200" MinHeight="300" ClipToBounds="True">
@@ -55,10 +56,10 @@
             </Grid>
         </WrapPanel>
         <WrapPanel Grid.Column="2" Grid.Row="1"  FlowDirection="LeftToRight"  Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label x:Name="lblOppositeTeam" Content="Opposite team:" FontSize="20" HorizontalAlignment="Center"/>
+            <Label x:Name="lblOppositeTeam" Content="{x:Static lang:Resources.lblOppositeTeam}" FontSize="20" HorizontalAlignment="Center"/>
             <Label x:Name="lblOppositeTeamName" FontSize="18" Content="" HorizontalAlignment="Center" Margin="0,20"/>
-            <Button x:Name="btnOppositeTeam" Content="Stats" Width="100" Height="50" Click="btnOppositeTeam_Click" />
+            <Button x:Name="btnOppositeTeam" Content="{x:Static lang:Resources.btnStats}" Width="100" Height="50" Click="btnOppositeTeam_Click" />
         </WrapPanel>
-    
+
     </Grid>
 </Window>

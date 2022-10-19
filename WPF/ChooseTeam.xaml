@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
+        xmlns:lang="clr-namespace:WPF.Properties"
         mc:Ignorable="d"
         Title="Choose opposite team" Height="400" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label x:Name="lblOppositeTeam" Content="Choose opposite team:" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"/>
+        <Label x:Name="lblOppositeTeam" Content="{x:Static lang:Resources.lblChooseOppositeTeam}" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"/>
         <ComboBox x:Name="cbOppositeTeam" HorizontalAlignment="Center" Width="250" FontSize="16" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             
         </ComboBox>
-        <Button x:Name="btnContinue" HorizontalAlignment="Center" Width="150" Height="30" Margin="0,215,0,35" Content="Continue" Click="btnContinue_Click"/>
+        <Button x:Name="btnContinue" HorizontalAlignment="Center" Width="150" Height="30" Margin="0,215,0,35" Content="{x:Static lang:Resources.lblContinue}" Click="btnContinue_Click"/>
     </Grid>
 </Window>

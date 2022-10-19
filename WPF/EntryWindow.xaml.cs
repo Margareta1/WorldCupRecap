@@ -22,17 +22,18 @@ namespace WPF
     {
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
-        private static Settings settings = new Settings();
+        private static Settings settings;
         public EntryWindow()
         {
             InitializeComponent();
-            CallSettings();
+            
         }
         private void CallSettings()
         {
             try
             {
                 settings = repo.GetSettings();
+
             }
             catch (Exception)
             {
@@ -79,6 +80,7 @@ namespace WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            CallSettings();
             InitSettings();
         }
 

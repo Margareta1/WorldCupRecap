@@ -24,7 +24,7 @@ namespace WPF
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
         private static Cup cup = new Cup();
-        private static Settings settings = repo.GetSettings();
+        private static Settings settings;
         public ChangeFavoriteTeamWindow(Cup c)
         {
             cup = c;
@@ -52,6 +52,7 @@ namespace WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            settings = repo.GetSettings();
             InitSettings();
             InitComboBox();
         }
