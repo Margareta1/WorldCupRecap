@@ -53,8 +53,8 @@ namespace WPF
             }
             else
             {
-                this.Height = 30;
-                this.Width = 30;
+                this.Height = 20;
+                this.Width = 20;
             }
         }
 

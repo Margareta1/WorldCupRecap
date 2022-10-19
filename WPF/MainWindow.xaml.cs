@@ -24,7 +24,7 @@ namespace WPF
     {
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
-        private static Settings settings = new Settings();
+        public Settings settings = new Settings();
         public Team oppositeTeam = new Team();
         public Match match = new Match();
 
@@ -57,6 +57,7 @@ namespace WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            settings = repo.GetSettings();
             InitSettings();
             InitResolution();
             InitLabels();
@@ -146,39 +147,30 @@ namespace WPF
                     WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     imgField.Width = 600;
                     imgField.Height = 900;
-                    //miniPlayerSize = new Size(50, 50);
-                    //miniPlayerMargin = 30;
                     break;
 
                 case Resolution.Medium:
                     WindowState = WindowState.Normal;
-                    Width = 1000;
-                    Height = 700;                    
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    Width = 800;
+                    Height = 600;
                     imgField.Width = 400;
-                    imgField.Height = 600;
-                    //miniPlayerSize = new Size(40, 40);
-                    //miniPlayerMargin = 20;
+                    imgField.Height = 500;
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     break;
 
                 case Resolution.Small:
                     WindowState = WindowState.Normal;
                     WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                    Width = 800;
-                    Height = 600;
-                    imgField.Width = 250;
-                    imgField.Height = 375;
-                    //miniPlayerSize = new Size(25, 25);
-                    //miniPlayerMargin = 10;
+                    Width = 600;
+                    Height = 400;
+                    imgField.Width = 200;
+                    imgField.Height = 300;
                     break;
                 default:
                     WindowState = WindowState.Maximized;
-                    WindowStyle = WindowStyle.None;
                     WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     imgField.Width = 600;
                     imgField.Height = 900;
-                    //miniPlayerSize = new Size(50, 50);
-                    //miniPlayerMargin = 30;
                     break;
             }
         }
@@ -218,6 +210,8 @@ namespace WPF
             if ((new ChangeLanguageWindow()).ShowDialog() == true)
             {
                 ChangeLanguage();
+                (new MainWindow(oppositeTeam)).Show();
+                this.Hide();
             }
         }
 
@@ -226,6 +220,9 @@ namespace WPF
             CultureInfo culture = new CultureInfo(settings.LanguageChoice == Library.Models.Language.Croatian ? "en" : "hr");
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
+            Settings newSettings = settings;
+            newSettings.LanguageChoice = settings.LanguageChoice == Library.Models.Language.Croatian ? Library.Models.Language.English : Library.Models.Language.Croatian;
+            repo.SetSettings(newSettings);
         }
 
         private void btnChangeOppositeTeam_Click(object sender, RoutedEventArgs e)

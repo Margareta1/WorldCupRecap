@@ -23,20 +23,22 @@ namespace WPF
     {
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
-        private static Team team = new Team();
-        private static Cup cup = new Cup();
-        private static TeamResult teamResults = new TeamResult();
+        public Team team = new Team();
+        public Cup cup = new Cup();
+        public TeamResult teamResults;
         public TeamStatisticsWindow(Team t, Cup c)
         {
+            teamResults   = new TeamResult();
             team = t;
             cup = c;
             InitializeComponent();
-            InitLabels();
+            
         }
 
         private void InitLabels()
         {
-            teamResults = repo.GetResultsForTeam((int)team.Id, cup)[0];
+            teamResults = repo.GetResultsForTeam((int)team.Id, cup).FirstOrDefault(t => t.Country == team.Country);
+            
             lbTeamName.Content = teamResults.Country;
             lbTeamFifaCode.Content = teamResults.FifaCode;
             lbTeamPlayedMatches.Content = teamResults.GamesPlayed;
@@ -46,6 +48,13 @@ namespace WPF
             lbTeamGoalsFor.Content = teamResults.GoalsFor;
             lbTeamGoalsAgainst.Content = teamResults.GoalsAgainst;
             lbTeamGoalDifferential.Content = teamResults.GoalDifferential;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            InitLabels();
+            
         }
     }
 }

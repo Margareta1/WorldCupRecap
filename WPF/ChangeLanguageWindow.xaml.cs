@@ -23,7 +23,7 @@ namespace WPF
     {
         private static RepositoryFactory rf = new RepositoryFactory();
         private static IRepository repo = rf.GiveThisManARepository();
-        private static Settings settings = repo.GetSettings();
+        private Settings settings = new Settings();
         public ChangeLanguageWindow()
         {
             InitializeComponent();
@@ -31,6 +31,7 @@ namespace WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            settings = repo.GetSettings();
             InitLabel();
         }
 
