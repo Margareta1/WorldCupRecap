@@ -6,8 +6,7 @@ namespace WF
 {
     public partial class MainForm : Form
     {
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         private static Settings s = repo.GetSettings();
         private static IList<Player> players = repo.GetPlayersForTeam(s.CupChoice, (int)s.FavoriteTeam.Id);
         private static IList<Match> matches = repo.GetMatches(s.CupChoice);

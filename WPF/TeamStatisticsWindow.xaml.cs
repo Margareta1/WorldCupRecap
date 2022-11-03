@@ -23,8 +23,8 @@ namespace WPF
     /// </summary>
     public partial class TeamStatisticsWindow : Window
     {
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         public Team team = new Team();
         public Cup cup = new Cup();
         public TeamResult teamResults;

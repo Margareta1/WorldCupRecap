@@ -7,8 +7,7 @@ namespace WF
     public partial class ChooseFavoriteTeamForm : Form
     {
         private Settings settings = new Settings();
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         public ChooseFavoriteTeamForm(Settings s)
         {
             InitCulture(s);

@@ -6,8 +6,8 @@
 
     public class Player
     {
-        private static RepositoryFactory rp = new RepositoryFactory();
-        private static IRepository repo = rp.GiveThisManARepository();
+        
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         private static IList<Match> matches = GetMatches();
 
         private static IList<Match> GetMatches()

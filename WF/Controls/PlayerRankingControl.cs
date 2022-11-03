@@ -8,8 +8,7 @@ namespace WF
     {
         public PlayerRankingControl player;
         private Player p = new Player();
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         public PlayerRankingControl(Player player)
         {
 

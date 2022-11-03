@@ -20,8 +20,8 @@ namespace WPF
 
     public partial class PlayerControl : UserControl
     {
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         public Player player = new Player();
         private Resolution resolution = new Resolution();
 

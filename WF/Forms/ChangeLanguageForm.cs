@@ -8,8 +8,7 @@ namespace WF
 
     public partial class ChangeLanguageForm : Form
     {
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
 
         public ChangeLanguageForm()
         {

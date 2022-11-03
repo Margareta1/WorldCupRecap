@@ -6,8 +6,7 @@ namespace WF
 {
     public partial class ExitForm : Form
     {
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repository = rf.GiveThisManARepository();
+        private static IRepository repository = RepositoryFactory.GiveThisManARepository();
         Settings s = repository.GetSettings();
         public ExitForm()
         {

@@ -1,8 +1,8 @@
 ﻿namespace Library.Repository
 {
-    public class RepositoryFactory
+    public static class RepositoryFactory
     {
-        public IRepository GiveThisManARepository()
+        public static IRepository GiveThisManARepository()
         {
             return new FileRepository();
         }

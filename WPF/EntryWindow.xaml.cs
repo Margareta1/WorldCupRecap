@@ -20,8 +20,8 @@ namespace WPF
 {
     public partial class EntryWindow : Window
     {
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         private static Settings settings;
         public EntryWindow()
         {

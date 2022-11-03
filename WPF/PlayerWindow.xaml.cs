@@ -23,8 +23,7 @@ namespace WPF
     {
         private static Player player = new Player();
         private static Match match = new Match();
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         private const string IMAGES_DIR = @"C:\Users\38597\Desktop\dotnet\Library\Images\";
 
         public PlayerWindow(Player p, Match m)

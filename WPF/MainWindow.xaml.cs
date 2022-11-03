@@ -22,8 +22,8 @@ namespace WPF
 
     public partial class MainWindow : Window
     {
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         public Settings settings = new Settings();
         public Team oppositeTeam = new Team();
         public Match match = new Match();

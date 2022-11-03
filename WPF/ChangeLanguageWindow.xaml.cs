@@ -21,8 +21,7 @@ namespace WPF
     /// </summary>
     public partial class ChangeLanguageWindow : Window
     {
-        private static RepositoryFactory rf = new RepositoryFactory();
-        private static IRepository repo = rf.GiveThisManARepository();
+        private static IRepository repo = RepositoryFactory.GiveThisManARepository();
         private Settings settings = new Settings();
         public ChangeLanguageWindow()
         {
