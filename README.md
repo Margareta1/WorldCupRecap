@@ -1,3 +1,3 @@
-A desktop application written in .NET for university purposes. 
+This is a desktop application written in .NET for university purposes. 
 
-*apologies for using absolute file paths in library > repository > filerepository, it just wouldn't work any other way
+Note: apologies for using absolute file paths in library > repository > filerepository, it just wouldn't work any other way
